@@ -8,6 +8,48 @@
   <title></title>
 </head>
 <body>
+  <div class = "container">
+  <h1>TO DO LIST</h1>
+  <div id="toDoList">
+
+  </div>
+  <form id="userInput">
+    <div class="form-group row">
+      <label for="description">Task</label>
+      <input id="description" type="text" class="form-control"></input>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Priority Level</legend>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="priority" id="priorty-1" value="1" checked>
+            <label class="form-check-label" for="priorty-1">
+              1
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="priority" id="priorty-2" value="2">
+            <label class="form-check-label" for="priorty-2">
+              2
+            </label>
+          </div>
+          <div class="form-check disabled form-check-inline">
+            <input class="form-check-input" type="radio" name="priority" id="priorty-3" value="3">
+            <label class="form-check-label" for="priorty-3">
+              3
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-group row">
+      <label for="assignee">Assign To</label>
+      <input id="assignee" type="text" class="form-control"></input>
+    </div>
+    <button type="submit" class="btn btn-dark">Add Task</button>
+  </form>
   
+</div>
 </body>
 </html>
