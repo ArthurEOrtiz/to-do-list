@@ -1,4 +1,5 @@
-+//Buisness Logic 
+//Buisness Logic 
+let taskList = [];
 //Task constructor 
 function Task(description,priority,assignee,complete) {
   this.description = description;
@@ -9,7 +10,7 @@ function Task(description,priority,assignee,complete) {
 //UI Logic 
 
 $(document).ready(function(){
-  let taskList = [];
+
   
   $("#userInput").submit(function(event){
     event.preventDefault();
