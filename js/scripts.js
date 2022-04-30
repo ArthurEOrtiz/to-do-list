@@ -8,6 +8,11 @@ ToDoList.prototype.addTask = function(task) {
   this.tasks[task.title] = task;
 };
 
+//Complete Tasks
+
+ToDoList.prototype.completeTask = function(task) {
+  
+};
 
 //Task constructor 
 function Task(title, description, priority, assignee, complete) {
@@ -19,31 +24,24 @@ function Task(title, description, priority, assignee, complete) {
 }
 
 //UI Logic 
-let toDo = new ToDoList;
-  
 function displayTasksList(taskListToDisplay){
   let toDoList = $("#toDoList");
   let htmlForList = "";
 
-  // Object.keys(taskListToDisplay.tasks).forEach(function(key) {
-  //   const task = taskListToDisplay.tasks[key];
-  //   //htmlForList += "<li><h3>" + task["title"] + "</h3>" + task["description"] + "</li>";
-  //   htmlForList += `<li><h3>${task.title}</h3>${task.description}</li>`;
-  //   console.log(taskListToDisplay.tasks[key]);
-  // });
-  // toDoList.html(htmlForList);
-
   htmlForList = Object.keys(taskListToDisplay.tasks).map(function (key) {
     const task = taskListToDisplay.tasks[key];
-    //htmlForList += "<li><h3>" + task["title"] + "</h3>" + task["description"] + "</li>";
-    return `<li><h3>${task.title}</h3>${task.description}</li>`;
+    return `<li><h4>${task.title}</h4><p>${task.description}</p><p>Priority: ${task.priority}</p><p>Assigned To: ${task.assignee}</p><button type="complete" class"btn btn-dark">COMPLETE TASK</button></li>`;
   }).join();
+
   toDoList.html(htmlForList);
 
   $("#toDoList").show();
 }
 
 $(document).ready(function(){
+
+  let toDo = new ToDoList;
+  
   $("#userInput").submit(function(event){
     event.preventDefault();
     const title = $("#title").val();
