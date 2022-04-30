@@ -1,10 +1,10 @@
 //Buisness Logic 
 //Task List constructor 
-function TaskList() {
+function ToDoList() {
   this.tasks = {};
 }
 
-TaskList.prototype.addTask = function(task) {
+ToDoList.prototype.addTask = function(task) {
   this.tasks[task.title] = task;
 };
 
@@ -19,17 +19,18 @@ function Task(title,description,priority,assignee,complete) {
 }
 
 //UI Logic 
-let taskList = new TaskList;
+let toDo = new ToDoList;
   
 function displayTasksList(taskListToDisplay){
-  let taskList = $("ol#toDoList");
+  let toDoList = $("ol#toDoList");
   let htmlForList = "";
 
   Object.keys(taskListToDisplay.tasks).forEach(function(key) {
-    const task = taskListToDisplay.key;
-    htmlForList += "<li>" + task[key] +"</li>";
+    const task = taskListToDisplay.tasks[key]
+    htmlForList += "<li>" + task["title"] + task["description"] + "</li>";
+    console.log(taskListToDisplay.tasks[key]);
   });
-  taskList.html(htmlForList);
+  toDoList.html(htmlForList);
 
   $("ol#toDoList").show();
 }
@@ -45,19 +46,10 @@ $(document).ready(function(){
   
     let newTask = new Task(title,description,priority,assignee,complete);
     
-    taskList.addTask(newTask);
+    toDo.addTask(newTask);
+
+    console.log(toDo);
+    displayTasksList(toDo);
     
-    /*
-    taskList.sort(function(a,b){
-      return a.tasks.priority - b.tasks.priority;
-    });
-
-    */
-
-
-    console.log(taskList.tasks);
-    displayTasksList(taskList);
-    
-
   })
 });
