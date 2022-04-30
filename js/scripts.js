@@ -10,7 +10,7 @@ ToDoList.prototype.addTask = function(task) {
 
 
 //Task constructor 
-function Task(title,description,priority,assignee,complete) {
+function Task(title, description, priority, assignee, complete) {
   this.title = title;
   this.description = description;
   this.priority = priority;
@@ -22,26 +22,34 @@ function Task(title,description,priority,assignee,complete) {
 let toDo = new ToDoList;
   
 function displayTasksList(taskListToDisplay){
-  let toDoList = $("ol#toDoList");
+  let toDoList = $("#toDoList");
   let htmlForList = "";
 
-  Object.keys(taskListToDisplay.tasks).forEach(function(key) {
-    const task = taskListToDisplay.tasks[key]
-    htmlForList += "<li>" + task["title"] + task["description"] + "</li>";
-    console.log(taskListToDisplay.tasks[key]);
-  });
+  // Object.keys(taskListToDisplay.tasks).forEach(function(key) {
+  //   const task = taskListToDisplay.tasks[key];
+  //   //htmlForList += "<li><h3>" + task["title"] + "</h3>" + task["description"] + "</li>";
+  //   htmlForList += `<li><h3>${task.title}</h3>${task.description}</li>`;
+  //   console.log(taskListToDisplay.tasks[key]);
+  // });
+  // toDoList.html(htmlForList);
+
+  htmlForList = Object.keys(taskListToDisplay.tasks).map(function (key) {
+    const task = taskListToDisplay.tasks[key];
+    //htmlForList += "<li><h3>" + task["title"] + "</h3>" + task["description"] + "</li>";
+    return `<li><h3>${task.title}</h3>${task.description}</li>`;
+  }).join();
   toDoList.html(htmlForList);
 
-  $("ol#toDoList").show();
+  $("#toDoList").show();
 }
 
 $(document).ready(function(){
   $("#userInput").submit(function(event){
     event.preventDefault();
-    const title = $("input#title").val();
-    const description = $("input#description").val();
+    const title = $("#title").val();
+    const description = $("#description").val();
     const priority = $("input:radio[name=priority]:checked").val();
-    const assignee = $("input#assignee").val();
+    const assignee = $("#assignee").val();
     const complete = false;
   
     let newTask = new Task(title,description,priority,assignee,complete);
