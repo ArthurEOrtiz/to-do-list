@@ -8,16 +8,18 @@
   <title></title>
 </head>
 <body>
-  <div class = "container">
+
   <h1>TO DO LIST</h1>
-  <div id="toDoList">
-    <p>Task: <span class="description"></span></p>
-    <p>Task: <span class="priorityLevel"></span></p>
-    <p>Task: <span class="assignee"></span></p>
-    <div id="buttons">
-    </div>
-  </div>
+
+    <ol id="toDoList">
+
+    </ol>
+<div class = "container">
   <form id="userInput">
+    <div class="form-group row">
+      <label for="title">Title</label>
+      <input id="title" type="text" class="form-control"></input>
+    </div>
     <div class="form-group row">
       <label for="description">Task</label>
       <input id="description" type="text" class="form-control"></input>
@@ -53,6 +55,6 @@
     </div>
     <button type="submit" class="btn btn-dark">Add Task</button>
   </form>
-  
+</div>
 </body>
 </html>
